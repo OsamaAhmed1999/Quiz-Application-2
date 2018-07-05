@@ -1,4 +1,5 @@
 #include <iostream>
+#include "subject.h"
 using namespace std;
 
 class group

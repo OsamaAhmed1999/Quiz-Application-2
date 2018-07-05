@@ -25,22 +25,22 @@ class general : public group
   void Subject()
   {
     int choice = 0;
-    cout << "Computer Quiz - 1\nPhysics Quiz - 2\n\n>> ";
+    cout << "Subject\nGeneral Knoledge Quiz - 1\nIslamiat Quiz - 2\n\n>> ";
     cin >> choice;
     system("cls");
 
     switch(choice)
     {
       case 1:
-      cout << "\t\t\t\tCOMPUTER\n" << endl;
-      sub[1] = subject("Computer");
-      sub[1].play("computer.txt");
+      cout << "\t\t\t\tGENERAL KNOWLEDGE\n" << endl;
+      sub[1] = subject("GK");
+      sub[1].play("general knowledge.txt");
       break;
 
       case 2:
-      cout<<"\t\t\t\tPHYSICS\n" << endl;
-      sub[2] = subject("Physics");
-      sub[2].play("physics.txt");
+      cout<<"\t\t\t\tISLAMIAT\n" << endl;
+      sub[2] = subject("Islamiat");
+      sub[2].play("islamiat.txt");
       break;
     }
   }

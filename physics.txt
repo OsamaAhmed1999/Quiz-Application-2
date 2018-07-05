@@ -1,9 +1,9 @@
-Q1. Which instrument is used to measure altitudes in aircraft's ?
-A: Audiometer
-B: Ammeter
-C: Altimeter
-D: Anemometer
-C
+
+CVVCV VVV VCVC VC
+ VCVCVC VCVC VCVC VC
+VCV VCVC VCV CVCVC
+VCVCV VCVCVC VCVCVCVCVCV VCVCVCVC VCVCVC
+CVCV
 Q2. Which instrument is used to measure depth of ocean ?
 A: Galvanometer
 B: Fluxmeter
@@ -89,3 +89,4 @@ C: Calculating Machine
 D: Centigrade Scale
 A
 End
+

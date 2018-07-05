@@ -20,7 +20,7 @@ class start
     int choice = 0;
     while(choice != 3)
     {
-      cout << "Please Enter Your Choice " << p->getname();
+      cout << "\nPlease Enter Your Choice " << p->getname();
       cout << "\nStudent - 1\nTeacher - 2\nExit - 3\n\n>> ";
       
       cin >> choice;
@@ -49,6 +49,7 @@ class start
   private:
   string name;
   people *p;
+  
 };
 
 void start::Student()

@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <string.h>
+#include <vector>
+#include <list>
 
 
 using namespace std;
@@ -24,109 +27,74 @@ class file
     }
   }
 
-  /*int search(string fileName)
+
+  string Compfileread(string filename)
+  {
+    ifstream file(filename);
+    string file_contents {istreambuf_iterator<char>(file) , istreambuf_iterator<char>() };
+    return file_contents;
+  };
+
+  string wordfileread(string filename , string word)
   {
     ifstream file;
-    file.open(fileName);
-    string search;
-    int line = 1 , found = 0;
-    cout << "Enter Question Number e.g Q1: ";
-    cin >> search;
-    string input = "";
-    
-    while(!file.eof())
+    file.open (filename);
+    string input;
+    while (file >> input)
     {
-      int i = 0;
-      getline(file , input);
-      if(search[i] == input[i])
+      if(input == word)
       {
-        i++;
-        if(search[i] == input[i])
-        {
-          i++;
-          if(search[i] == '\0')
-          {
-            found++;
-            break;
-          }
-          else
-          {
-            if(search[i] == input[i])
-            {
-              found++;
-              break;
-            }
-          }
-        }
-      }
-      line++;
-    }
-    if(found == 0)
-    {
-      cout << "\nNot Found\n";
-      return 0;
-    }
-    else
-    {
-      return line;
+        cout << "Found" endl;
+      } 
     }
   }
 
-  void deletee(string fileName)
-  {    
-    ifstream file1;
-    file1.open(fileName);
-    ofstream file2;
-    file2.open("temp.txt");
-    string temp , input;
-    int line = 1;
-    int del_line;
-    del_line = search(fileName);
-
-    while (!file1.eof())
+  string vector(string filename)
+  {
+    ifstream file;
+    file.open (filename);
+    string word;
+    while (file >> word)
     {
-      if (line == del_line)
+      vector<string> text{word};
+      string input;
+      while(getline(file , input))
       {
-        for(int i = 1; i <= 6; i++)
+        vector<string> text1{input};  
+        list<vector<string>> rec{text,text1};
+        for(list<vector<string>>::const_iterator i = rec.begin(); i != rec.end(); ++i)
         {
-          getline(file1 , temp);
-          if(i == 1)
-          {
-            cout << "Question Number: ";
-            cin >> input;
-            file2 << "Q" << input << ". ";
-            cout << "Write Question: ";
-            cin >> input;
-            file2 << input << "\n";
-            line++;
-          }
-          else if(i > 1 && i <= 5)
-          {
-            cout << "Options " << i-1 <<" ";
-            cin >> input;
-            file2 << input << "\n";
-            line++;
-          }
-          else
-          {
-            cout << "Answer: ";
-            cin >> input;
-            file2 << input << "\n";
-            line++;
-          }
+            for(vector<string>::const_iterator j = i->begin(); j != i->end(); ++j)
+                cout << *j << " ";
+            cout <<	endl;
         }
       }
-      else
-      {
-        getline(file1 , temp);
-        file2 << temp << "\n";
-        line++;
-      }
     }
-    file1.close();
-    file2.close();
-    remove("physics.txt");
-    rename("temp.txt" , "physics.txt");
-  }*/
+    //vector<vector<vector<string>>> line{rec}; 
+    //for(vector<vector<vector<string>>>::const_iterator i = rec.begin(); i != rec.end(); ++i)
+    //{
+
+    /*string word;
+    while (file >> word)
+    {
+      vector<string> text{word};
+      //vector<vector<vector<string>>> line{rec}; 
+      //for(vector<vector<vector<string>>>::const_iterator i = rec.begin(); i != rec.end(); ++i)
+      //{
+      for(vector<vector<string>>::const_iterator i = rec.begin(); i != rec.end(); ++i)
+      {
+          for(vector<string>::const_iterator j = i->begin(); j != i->end(); ++j)
+          cout << *j << " ";
+      }
+    }*/
+
+    /*ifstream file(filename);
+    string file_contents {istreambuf_iterator<char>(file) , istreambuf_iterator<char>() };
+    return file_contents;*/
+  }
+
+
+  
+  private:
 
 };

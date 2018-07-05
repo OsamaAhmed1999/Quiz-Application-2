@@ -42,7 +42,7 @@ class subject
     }
     system("cls");
     cout << "End of Quiz\nThanks for Playing\nYour Score is " << score << " Out of 150\n" <<endl;
-    result(score);
+    rezult(score);
   };
 
   int answer(string fileName , int line , int score , int j)
@@ -62,10 +62,9 @@ class subject
     }
   };
 
-  void result(int score)
+  void rezult(int score)
   {
-    ofstream file("result.txt");
-    file << "Name: ";
+    ofstream file("result.txt" , ios::app);
     file << "\nScore: " << score << "\nAnswer\n";
     for(int i = 0; i < 15; i++)
     {
@@ -73,21 +72,21 @@ class subject
     }
     file.close();
     char choice;
-    cout << "Do You want To Check Your Answers Y/N\n>> ";
+    cout << "Do You want To Check Your Result and Answers Y/N\n>> ";
     cin >> choice;
     if(choice == 'y' || choice == 'Y')
     {
-      int line = 1;
-      while(line <= 18)
-      {
-        cout << f.Fileread("result.txt" , line) << endl;
-        line++;
-      }
+      system("cls");
+      cout << f.Compfileread("result.txt");     
     }    
   };
 
+  protected:
+  file f;
+  
   private:
   string subname;
   string ans[15];
-  file f;
+  
+
 };

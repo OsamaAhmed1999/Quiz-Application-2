@@ -1,6 +1,6 @@
 #include <iostream>
 #include "group.h"
-#include "subject.h"
+
 
 using namespace std;
 
@@ -26,7 +26,7 @@ class science : public group
   void Subject()
   {
     int choice = 0;
-    cout << "Computer Quiz - 1\nPhysics Quiz - 2\n\n>> ";
+    cout << "Subject\nComputer Quiz - 1\nPhysics Quiz - 2\n\n>> ";
     cin >> choice;
     system("cls");
 

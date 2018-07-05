@@ -8,18 +8,34 @@ class student : public people
   public:
   student()
   {
-    this->seatno = 123;
-    this->grp[1] = NULL;
+    this->id = 123;
   }
 
   student (string name , int no) : people(name)
   {
-    this->seatno = no; 
+    this->id = no; 
+    file();
+  }
+
+  group getgrp()
+  {
+    return *this->grp[choice];
+  }
+  int getid()
+  {
+    return this->id;
+  }
+
+  void file()
+  {
+    ofstream file("result.txt");
+    file << "Name: " << name << "\n";
+    file << "ID: " << id << "\n";
+    file.close();
   }
 
   void Quiz()
   {
-    int choice = 0;
     cout << "\n\nGroup\nScience - 1\nGeneral - 2\n\n>> ";
     cin >> choice;
     system("cls");
@@ -39,8 +55,20 @@ class student : public people
     }
   }
 
+  void display()
+  {
+    cout << this->name << endl;
+    cout << this->id << endl;
+  }
+
   private:
-  int seatno;
+  int id;
+  int choice;
   group *grp[2];
 
 };
+
+ostream& operator << (ostream& output , student& object)
+{
+  return output << object.getname() << "\n" << object.getid() << endl;
+}
